@@ -1,0 +1,56 @@
+/*Global properties*/
+$fonts: Raleway, sans-serif !important;
+$label-font: Raleway, sans-serif !important;
+$font-size: 14px;
+$label-color: white;
+$shadow-color: black;
+$label-selected-color: black;
+$background-selected-color: rgba(245,245,245,1);
+
+// functions
+@mixin pad($x){
+	padding: $x;
+}
+
+body{
+	margin: 0px;
+}
+
+.groupbutton{
+  display: block;
+}
+
+.groups{
+
+	span.label {
+    font-family: $label-font;
+    font-size: 1.6em;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    @include pad(0.3em);
+		color: $label-color;
+		text-shadow: 0px 0px 3px black;
+		background-color: #223;
+	}
+
+	span.selected {
+    color: $label-selected-color;
+		text-shadow: none;
+		background-color: $background-selected-color;
+	}
+
+	span.selected:hover {
+    color: darken($label-selected-color, 20%) ;
+	}
+
+	span:hover {
+    color: darken($label-color, 20%);
+    left: 0.1em;
+	}
+}
+
+.close{
+	background: none;
+	border: none;
+}

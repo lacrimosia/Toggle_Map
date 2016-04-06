@@ -1,0 +1,9 @@
+<div class="map animated fadeIn">
+      <div class="map" [attr.aria-hidden]="noneSelected() ? 'false' : 'true'">
+        <img id="background-map" (click)="backgroundClick($event)" src="./images/Cultures_Map.png" alt="Map of North America" width={{width}} height={{height}}/>
+        <div class="groups">
+          <span *ngFor="#group of culturalGroups" (keypress)="pressKey($event.keyCode, group)" (click)="toggleGroup(group);" [class.selected]="group === selectedCulturalGroup" class="label" role="button" aria-haspopup="true" tabindex=0 [ngStyle]="{'text-align':'center', 'position': 'absolute', 'top': group.point.y+'px', 'left': group.point.x+'px'}" ><i class='fa fa-map-marker'[ngStyle]="{'color': group.color}"> </i> <span [outerHTML]=" group.name | spaceToBreak"></span><!--<span [outerHTML]="group.boxPosition.x"></span>--></span>
+        </div>
+      </div>
+      </div>
+      <cultural-group-detail [culturalGroup]="selectedCulturalGroup"></cultural-group-detail>

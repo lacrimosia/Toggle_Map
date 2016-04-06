@@ -1,0 +1,11 @@
+<div role="dialog" aria-labelledby="dialogLabel" aria-describedby="dialogDescription" class="culture-group-detail {{culturalGroup.className}} " *ngIf="culturalGroup" [ngStyle]="{'position': 'absolute', 'top': culturalGroup.boxPosition.y+'px', 'left': culturalGroup.boxPosition.x+'px'}" [class.animated]="!show" [class.fadeIn]="!show">
+  <button class="close" alt="Close"[ngStyle]="{'padding': '0px 0px 10px 0px'}" (click)="hideBox()"><i class="fa fa-times"></i></button>
+  <div class="description">
+    <h2 id="dialogLabel"><i class='fa fa-map-marker'[ngStyle]="{'color': culturalGroup.color}"> </i> {{ culturalGroup.name}}</h2>
+    <img src="{{culturalGroup.image}}" *ngIf="culturalGroup.image != '';" [ngStyle]="{'background-color': culturalGroup.color, 'width': 100+'%', 'height': 'auto', 'padding-bottom': 15+'px', 'margin-bottom': 10+'px'}" />
+    <p id="dialogDescription">{{culturalGroup.description}}</p>
+    <!--<p>
+      <button class="button"><i class="fa fa-link"></i> Resources</button>
+    </p>-->
+  </div>
+</div>

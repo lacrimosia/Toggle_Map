@@ -1,0 +1,157 @@
+$fonts: Raleway, sans-serif !important;
+$fontsd: sans-serif, helvetica, arial !important;
+$detail-background-color: #6B0000;
+$detail-text-color: white;
+$font-size: 14px;
+
+@mixin boxshadow($top, $left, $blur, $color){
+  -moz-box-shadow: $top $left $blur $color;
+  -webkit-box-shadow: $top $left $blur $color;
+  box-shadow: $top $left $blur $color;
+}
+
+@mixin borderRadius($size){
+  -moz-border-radius: $size;
+  -webkit-border-radius: $size;
+  -ms-border-radius: $size;
+  -o-border-radius: $size;
+  border-radius: $size;
+}
+
+@mixin leftArrow($top) {
+  content: '';
+  width: 0px;
+  height: 0px;
+  @include arrow(-24%, $top, 0px, 40px, transparent, transparent, #f5f5f5, transparent);
+}
+
+@mixin rightArrow($top) {
+  content: '';
+  width: 0px;
+  height: 0px;
+  @include arrow(100%, $top, 0px, 40px, transparent, #f5f5f5, transparent, transparent);
+}
+
+@mixin arrow($left, $top, $margin, $amount: 20px, $topColor: transparent, $leftColor: transparent, $rightColor: transparent, $bottomColor: transparent){
+  border-top: $amount solid $topColor;
+  border-left: $amount solid $leftColor;
+  border-right: $amount solid $rightColor;
+  border-bottom: $amount solid $bottomColor;
+  position: absolute;
+  left: $left;
+  top: $top;
+  margin-top: $margin;
+}
+
+p{
+  font-family: $fontsd;
+  font-weight: 100;
+}
+
+.culture-group-detail{
+  font-family: $fonts;
+  display: block;
+  // position: relative;
+  // top: -490px;
+  // left: 600px;
+  background-color: #f5f5f5;
+  /*border: 1px solid #333;*/
+  color: black;
+  padding: 15px;
+  width: 300px;
+  font-size: 1.2em;
+  @include boxshadow(3px, 3px, 8px, #aaa);
+  @include borderRadius(2em);
+  // width: 600px;
+  margin-left: 0;
+
+&.description {
+  padding: 0 10px 10px;
+}
+
+  h1,h2,h3 {
+    font-family: $fonts;
+  }
+  p {
+    font-family: serif;
+  }
+
+  img{
+    padding-bottom: 10px;
+	}
+
+// Arrows by class
+
+&.navajo:after{
+  @include rightArrow(36%);
+}
+
+&.puebloan:after{
+  @include rightArrow(45%);
+}
+
+&.apache:after{
+  @include rightArrow(65%);
+}
+
+&.southernpaiute:after{
+  @include leftArrow(20%);
+}
+
+&.uplandyuman:after{
+  @include leftArrow(40%);
+}
+
+
+&.riveryuman:after{
+  @include leftArrow(56%);
+}
+
+&.oodham:after{
+  @include leftArrow(70%);
+}
+
+
+
+
+
+
+
+
+  &.top:after{
+  content: '';
+  width: 0px;
+  height: 0px;
+  @include arrow(38%, -17%, 0px, 40px, #f5f5f5);
+  }
+
+  &.left:after{
+  content: '';
+  width: 0px;
+  height: 0px;
+  @include arrow(-24%, 42%, 0px, 40px, transparent, transparent, #f5f5f5, transparent);
+  }
+
+  &.right:after{
+  content: '';
+  width: 0px;
+  height: 0px;
+  @include arrow(100%, 42%, 0px, 40px, transparent, #f5f5f5, transparent, transparent);
+  }
+}
+
+.button{
+width: 100%;
+background: #E2E2E2;
+border: none;
+height:10%;
+color: #000;
+padding: 15px;
+font-family: $fonts;
+font-size: 16px;
+}
+
+
+.button:hover{
+background: #7B7A7C;
+}

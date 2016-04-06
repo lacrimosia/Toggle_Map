@@ -1,42 +1,36 @@
 import {Component} from 'angular2/core';
 import {OnInit} from 'angular2/core';
-import {Deselectable} from './deselectable';
-import {CulturalGroup} from './cultural-group';
-import {CulturalGroupDetailComponent} from './cultural-group-detail.component';
-import {culturalGroupsData} from './cultural-groups-data';
+import {Layer} from './layer';
+import {layerData} from './layer-data';
 import {SpaceToBreakPipe} from './space-to-break-pipe';
 
 const KEY_SPACE: number = 32;
 const KEY_ENTER: number = 13;
-const KEY_ESC: number = 27;
+
 
 
 @Component({
-  host: {
-    '(document:keyup)': '_keyup($event)',
-  },
   selector: 'my-app',
   templateUrl: './app-component.html',
   styleUrls: ["./styles/app.component.css"],
-  directives: [CulturalGroupDetailComponent],
   providers:[AppComponent],
   pipes: [SpaceToBreakPipe]
 })
 
-export class AppComponent implements OnInit, Deselectable{
+export class AppComponent implements OnInit{
 
 
   public title = 'Culture Group Viewer';
   public width = 700;
   public height= 571;
 
-  public culturalGroups: CulturalGroup[];
-  public selectedCulturalGroup: CulturalGroup;
+  public layers: Layer[];
+  public selectedLayer: Layer;
 
 
   pressKey(keyCode, group) {
     if(keyCode === KEY_SPACE || keyCode === KEY_ENTER) {
-      this.toggleGroup(group);
+      this.selectLayer(group);
     }
   }
 
@@ -47,42 +41,20 @@ export class AppComponent implements OnInit, Deselectable{
        this.selectedCulturalGroup.point = { "x": event.pageX, "y": event.pageY};
       console.log(JSON.stringify(this.culturalGroups));
      }*/
-     this.deselect();
+
   }
 
-toggleGroup(group: CulturalGroup) {
-  if (this.isSelected(group)) {
-    this.deselect();
-  } else {
-    this.selectGroup(group);
-  }
-}
-
-  selectGroup(culturalGroup: CulturalGroup) {
-    this.selectedCulturalGroup = culturalGroup;
+selectLayer(layer: Layer) {
+    this.selectedLayer = layer;
   }
 
-  deselect() {
-    this.selectedCulturalGroup = null;
-  }
-
-  isSelected(group: CulturalGroup) {
-    return this.selectedCulturalGroup == group;
-  }
-
-  noneSelected() {
-    return this.selectedCulturalGroup == null;
-  }
-
-  private _keyup(event) {
-    if (event.keyCode == KEY_ESC) {
-      this.deselect();
-    }
-
+  isSelected(layer: Layer) {
+    return this.selectedLayer == layer;
   }
 
   ngOnInit() {
-    this.culturalGroups = culturalGroupsData.sort((a,b) => a.tabOrder - b.tabOrder);
+    this.layers = layerData.sort((a,b) => b.tabOrder - a.tabOrder);
+    this.selectedLayer=this.layers[0];
   }
 
 }

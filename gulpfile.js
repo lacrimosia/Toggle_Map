@@ -105,7 +105,7 @@ gulp.task('copy-compiled-source-and-assets', function() {
 gulp.task('deploy', function() {
 
 process.stdout.write('Cleaning remote directory\n');
-child_process.execSync('ssh rootb1@web01.online.unlv.edu rm -r /srv/www/courses.online.unlv.edu/courses/ANTH/ANTH400C/culture-groups/*', function(err,stdout, stderr) {
+child_process.execSync('ssh rootb1@web01.online.unlv.edu rm -r /srv/www/courses.online.unlv.edu/courses/ANTH/ANTH400C/river-yuman-map/*', function(err,stdout, stderr) {
  if (err) {
    console.log("clean processes failed with error code: " +
      err.code);
@@ -113,7 +113,7 @@ child_process.execSync('ssh rootb1@web01.online.unlv.edu rm -r /srv/www/courses.
    console.log(stdout);
  });
   process.stdout.write('Copying files from dist/ to remote directory\n');
-  child_process.execSync("scp -r dist/* rootb1@web01.online.unlv.edu:/srv/www/courses.online.unlv.edu/courses/ANTH/ANTH400C/culture-groups/", function(err,stdout, stderr) {
+  child_process.execSync("scp -r dist/* rootb1@web01.online.unlv.edu:/srv/www/courses.online.unlv.edu/courses/ANTH/ANTH400C/river-yuman-map/", function(err,stdout, stderr) {
    if (err) {
      console.log("copy processes failed with error code: " +
        err.code);

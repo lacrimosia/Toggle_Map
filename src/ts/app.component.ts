@@ -26,7 +26,7 @@ export class AppComponent implements OnInit{
 
   public layers: Layer[];
   public selectedLayer: Layer;
-
+  public showAnimations: boolean;
 
   pressKey(keyCode, group) {
     if(keyCode === KEY_SPACE || keyCode === KEY_ENTER) {
@@ -45,6 +45,7 @@ export class AppComponent implements OnInit{
   }
 
 selectLayer(layer: Layer) {
+    this.showAnimations = true;
     this.selectedLayer = layer;
   }
 
@@ -53,8 +54,11 @@ selectLayer(layer: Layer) {
   }
 
   ngOnInit() {
+    this.showAnimations = false;
     this.layers = layerData.sort((a,b) => b.tabOrder - a.tabOrder);
     this.selectedLayer=this.layers[0];
   }
+
+
 
 }

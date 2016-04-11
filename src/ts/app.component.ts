@@ -28,10 +28,18 @@ export class AppComponent implements OnInit{
   public selectedLayer: Layer;
   public showAnimations: boolean;
 
-  pressKey(keyCode, group) {
+  pressKey(keyCode, layer) {
     if(keyCode === KEY_SPACE || keyCode === KEY_ENTER) {
-      this.selectLayer(group);
+      this.selectLayer(layer);
     }
+  }
+
+  isFirst(layer: Layer) {
+    return layer == this.layers[0];
+  }
+
+  isLast(layer: Layer) {
+    return layer == this.layers[this.layers.length - 1];
   }
 
 selectLayer(layer: Layer) {

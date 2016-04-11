@@ -1,6 +1,6 @@
-      <div class="map">
+      <div class="map" [style.width]="width" [style.height]="height">
         <img *ngFor="#layer of layers" src="{{layer.image}}" [style.display]="isSelected(layer)? 'block': 'none'" alt="{{layer.imageAlt}}" width={{width}} height={{height}}/>
         <div class="layer-buttons">
-          <span *ngFor="#layer of layers" (keypress)="pressKey($event.keyCode, layer)" (click)="selectLayer(layer);" [class.selected]="layer === selectedLayer" class="label" role="button"  tabindex=0 [ngStyle]="{'text-align':'center', 'position': 'absolute', 'top': layer.point.y+'px', 'left': layer.point.x+'px'}" ><i class='fa fa-map-marker'[ngStyle]="{'color': layer.color}"> </i> <span [outerHTML]="layer.name | spaceToBreak"></span></span>
-        </div>
+          <span *ngFor="#layer of layers" (keypress)="pressKey($event.keyCode, layer)" (click)="selectLayer(layer);" [class.selected]="layer === selectedLayer" [class.first]="isFirst(layer)" [class.last]="isLast(layer)" class="label" role="button" [ngStyle]="{'text-align':'center'}" [innerHTML]="layer.name | spaceToBreak"></span>
+        <span class="clearfix"></span></div>
       </div>

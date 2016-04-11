@@ -1,11 +1,14 @@
 /*Global properties*/
-$fonts: Raleway, sans-serif !important;
+$fonts: Ralewa	y, sans-serif !important;
 $label-font: Raleway, sans-serif !important;
 $font-size: 14px;
-$label-color: white;
 $shadow-color: black;
-$label-selected-color: black;
-$background-selected-color: rgba(245,245,245,1);
+$control-palette: #718943;
+$label-color: lighten($control-palette, 20);
+$background-color: darken($control-palette, 20);
+$label-selected-color: darken($control-palette, 40);
+$background-selected-color: lighten($background-color, 50);
+
 
 // functions
 @mixin pad($x){
@@ -16,41 +19,58 @@ body{
 	margin: 0px;
 }
 
-.map img {
+.map {
+
+	overflow: hidden;
+
+	img {
 	position: fixed;
 	top: 0;
 	left: 0;
-}
-.layer-button{
-  display: block;
+	}
 }
 
 .layer-buttons{
+display: block;
+	background-color:$background-color;
+	position: absolute;
+	// padding: 5px;
+	margin: 5px;
+	padding: 3px;
 
 	span.label {
     font-family: $label-font;
     font-size: 1.6em;
     display: block;
     cursor: pointer;
-    position: relative;
+    float: left;
     @include pad(0.3em);
 		color: $label-color;
-		text-shadow: 0px 0px 3px black;
-		background-color: #223;
-	}
+		text-shadow:none;
+		background-color: $background-color;
+		border-radius:3px;
 
-	span.selected {
+
+		}
+
+	span.label.selected {
     color: $label-selected-color;
 		text-shadow: none;
 		background-color: $background-selected-color;
 	}
 
+span.label :focus {
+	outline-color: blue;
+	outline-offset: 1px;
+	outline-width: 2px;
+}
+
 	span.selected:hover {
-    color: darken($label-selected-color, 20%) ;
+    //color: darken($label-selected-color, 20%) ;
 	}
 
 	span:hover {
-    color: darken($label-color, 20%);
+    color: lighten($label-color, 20%);
     left: 0.1em;
 	}
 }

@@ -1,5 +1,5 @@
       <div class="map">
-        <img *ngFor="#layer of layers" id="background-map" src="{{layer.image}}" [style.z-index]="isSelected(layer) ? -1 : 0" [class.animated]="true" [class.fadeOut]="!isSelected(layer)"  alt="{{layer.imageAlt}}" width={{width}} height={{height}}/>
+        <img *ngFor="#layer of layers" src="{{layer.image}}" [style.display]="isSelected(layer)? 'block': 'none'" alt="{{layer.imageAlt}}" width={{width}} height={{height}}/>
         <div class="layer-buttons">
           <span *ngFor="#layer of layers" (keypress)="pressKey($event.keyCode, layer)" (click)="selectLayer(layer);" [class.selected]="layer === selectedLayer" class="label" role="button"  tabindex=0 [ngStyle]="{'text-align':'center', 'position': 'absolute', 'top': layer.point.y+'px', 'left': layer.point.x+'px'}" ><i class='fa fa-map-marker'[ngStyle]="{'color': layer.color}"> </i> <span [outerHTML]="layer.name | spaceToBreak"></span></span>
         </div>

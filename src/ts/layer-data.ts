@@ -2,7 +2,7 @@ import {Layer} from './layer';
 
 export var layerData: Layer[] =[
   {
-    "tabOrder": 2,
+    "tabOrder": 1,
     "point": {
       "x": 350,
       "y": 40
@@ -13,7 +13,7 @@ export var layerData: Layer[] =[
     "className": "past",
   },
   {
-    "tabOrder": 1,
+    "tabOrder": 2,
     "point": {
       "x": 500,
       "y": 40

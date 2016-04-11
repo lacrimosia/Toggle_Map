@@ -34,16 +34,6 @@ export class AppComponent implements OnInit{
     }
   }
 
-  backgroundClick(event) {
-    // this.selectedCulturalGroup = this.instructionsGroup;
-    /* console.log("{\"x\": " + event.pageX + ", \"y\": " + event.pageY + "}");
-     if (this.selectedCulturalGroup) {
-       this.selectedCulturalGroup.point = { "x": event.pageX, "y": event.pageY};
-      console.log(JSON.stringify(this.culturalGroups));
-     }*/
-
-  }
-
 selectLayer(layer: Layer) {
     this.showAnimations = true;
     this.selectedLayer = layer;
@@ -55,8 +45,8 @@ selectLayer(layer: Layer) {
 
   ngOnInit() {
     this.showAnimations = false;
-    this.layers = layerData.sort((a,b) => b.tabOrder - a.tabOrder);
-    this.selectedLayer=this.layers[0];
+    this.layers = layerData.sort((a,b) => a.tabOrder - b.tabOrder);
+    this.selectedLayer = this.layers[0];
   }
 
 

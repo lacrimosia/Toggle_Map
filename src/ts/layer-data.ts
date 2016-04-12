@@ -3,7 +3,7 @@ import {Layer} from './layer';
 export var layerData: Layer[] =[
   {
     "tabOrder": 1,
-    "name": "Historical Territories",
+    "name": "Past Territories",
     "image": "./images/River-Yumans---past-territories_labels.png",
     "imageAlt": "Map showing historical extent of River Yuman subgroups",
   },

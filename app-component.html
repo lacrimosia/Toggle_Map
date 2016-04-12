@@ -1,6 +1,6 @@
       <div class="map" [style.width]="width" [style.height]="height">
         <img *ngFor="#layer of layers" src="{{layer.image}}" [style.display]="isSelected(layer)? 'block': 'none'" alt="{{layer.imageAlt}}" width={{width}} height={{height}}/>
         <div class="layer-buttons">
-          <span *ngFor="#layer of layers" tabindex=0 (keypress)="pressKey($event.keyCode, layer)" (click)="selectLayer(layer);" [class.selected]="layer === selectedLayer" [class.first]="isFirst(layer)" [class.last]="isLast(layer)" class="label" role="button" [ngStyle]="{'text-align':'center'}" [innerHTML]="layer.name | spaceToBreak"></span>
+          <span *ngFor="#layer of layers" tabindex=0 (keypress)="pressKey($event.keyCode, layer)" (click)="selectLayer(layer);" [class.selected]="layer === selectedLayer" [class.first]="isFirst(layer)" [class.last]="isLast(layer)" class="label" role="button" [ngStyle]="{'text-align':'center'}" [innerHTML]="layer.name"></span>
         <span class="clearfix"></span></div>
       </div>

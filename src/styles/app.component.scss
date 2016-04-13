@@ -135,24 +135,26 @@ body {
 
 
 /* Title Label */
-.title{
-        font-family: $label-font;
-        font-size: 1.6em;
-        display: block;
-        cursor: pointer;
-        float: left;
-        @include pad(0.3em);
-        color: $label-color;
-        text-shadow: none;
-        background-color: $background-color;
-        border-radius: 3px;
-        margin-right: 4px;
-        position: relative;
-        top: 45px; left: 142px;
+
+.title {
+    font-family: $label-font;
+    font-size: 1.6em;
+    display: block;
+    cursor: pointer;
+    float: left;
+    @include pad(0.3em);
+    color: $label-color;
+    text-shadow: none;
+    background-color: $background-color;
+    border-radius: 3px;
+    margin-right: 4px;
+    position: relative;
+    top: 45px;
+    left: 65px;
 }
 
 .selected {
-        color: $label-selected-color !important;
-        text-shadow: none;
-        background-color: $background-selected-color !important;
-    }
+    color: $label-selected-color !important;
+    text-shadow: none;
+    background-color: $background-selected-color !important;
+}

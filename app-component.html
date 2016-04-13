@@ -1,5 +1,5 @@
       <div class="map" [style.width]="width" [style.height]="height">
-      <span class="title" *ngFor="#layer of layers" [class.selected]="layer === selectedLayer">{{layer.name}}</span>
+      <span class="title" *ngFor="#layer of layers" [class.selected]="layer === selectedLayer" (click)="change()">{{layer.name}}</span>
         <img *ngFor="#layer of layers" src="{{layer.image}}" [style.display]="isSelected(layer)? 'block': 'none'" alt="{{layer.imageAlt}}" width={{width}} height={{height}} />
         <!--toggle map -->
       <div class="onoffswitch">

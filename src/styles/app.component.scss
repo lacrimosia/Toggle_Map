@@ -22,7 +22,7 @@ body {
 
 .map {
     position: relative;
-    top: 0;
+    top: -45px;
     left: 0;
 }
 
@@ -83,6 +83,8 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    top: -60px;
+    left: 586px;
 }
 
 .onoffswitch-checkbox {
@@ -129,3 +131,27 @@ body {
 .onoffswitch-checkbox:checked + .onoffswitch-label:before {
     right: 0px;
 }
+
+
+/* Title Label */
+.title{
+        font-family: $label-font;
+        font-size: 1.6em;
+        display: block;
+        cursor: pointer;
+        float: left;
+        @include pad(0.3em);
+        color: $label-color;
+        text-shadow: none;
+        background-color: $background-color;
+        border-radius: 3px;
+        margin-right: 4px;
+        position: relative;
+        top: 45px; left: 142px;
+}
+
+.selected {
+        color: $label-selected-color !important;
+        text-shadow: none;
+        background-color: $background-selected-color !important;
+    }

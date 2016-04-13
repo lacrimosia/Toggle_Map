@@ -5,7 +5,8 @@ body {
 .map {
   position: relative;
   top: -45px;
-  left: 0; }
+  left: 0;
+  transition: background-image 0.3s ease-in; }
 
 .layer-buttons {
   display: block;
@@ -66,7 +67,7 @@ body {
   border: 2px solid #CCCCCC;
   border-radius: 42px;
   background-color: #486D8E;
-  transition: background-color 0.3s ease-in; }
+  transition: background-color 0.2s ease-in; }
 
 .onoffswitch-label:before {
   content: "";
@@ -80,7 +81,7 @@ body {
   right: 58px;
   border: 2px solid #CCCCCC;
   border-radius: 42px;
-  transition: all 0.3s ease-in 0s; }
+  transition: all 0.2s ease-in 0s; }
 
 .onoffswitch-checkbox:checked + .onoffswitch-label {
   background-color: #E0E0E0; }

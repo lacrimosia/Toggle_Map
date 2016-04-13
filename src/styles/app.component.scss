@@ -1,6 +1,9 @@
 /*Global properties*/
-$fonts: Ralewa y, sans-serif !important;
-$label-font: Raleway, sans-serif !important;
+
+$fonts: Ralewa y,
+sans-serif !important;
+$label-font: Raleway,
+sans-serif !important;
 $font-size: 14px;
 $shadow-color: black;
 $control-palette: desaturate( #6BA1D1, 20);
@@ -10,59 +13,119 @@ $label-selected-color: darken($control-palette, 40);
 $background-selected-color: lighten($background-color, 90);
 // functions
 @mixin pad($x) {
-  padding: $x;
+    padding: $x;
 }
+
 body {
-  margin: 0;
+    margin: 0;
 }
+
 .map {
-  position: relative;
-  top: 0;
-  left: 0;
+    position: relative;
+    top: 0;
+    left: 0;
 }
+
 .layer-buttons {
-  display: block;
-  background-color: black;
-  position: absolute;
-  top: 1%;
-  left: 15%;
-  // padding: 5px;
-  margin: 5px;
-  padding: 6px;
-  span.label {
-    font-family: $label-font;
-    font-size: 1.6em;
     display: block;
-    cursor: pointer;
-    float: left;
-    @include pad(0.3em);
-    color: $label-color;
-    text-shadow: none;
-    background-color: $background-color;
-    border-radius: 3px;
-    margin-right: 4px;
-    &.last {
-      margin-right: 0;
+    background-color: black;
+    position: absolute;
+    top: 1%;
+    left: 15%;
+    // padding: 5px;
+    margin: 5px;
+    padding: 6px;
+    span.label {
+        font-family: $label-font;
+        font-size: 1.6em;
+        display: block;
+        cursor: pointer;
+        float: left;
+        @include pad(0.3em);
+        color: $label-color;
+        text-shadow: none;
+        background-color: $background-color;
+        border-radius: 3px;
+        margin-right: 4px;
+        &.last {
+            margin-right: 0;
+        }
     }
-  }
-  span.label.selected {
-    color: $label-selected-color;
-    text-shadow: none;
-    background-color: $background-selected-color;
-  }
-  span.selected:hover {
-    //color: darken($label-selected-color, 20%) ;
-  }
-  span:hover {
-    color: lighten($label-color, 20%);
-    left: 0.1em;
-  }
-   span:focus {
-    outline: medium solid darken(red,10) !important;
-    // box-shadow: 0 0 10px #719ECE;
-  }
+    span.label.selected {
+        color: $label-selected-color;
+        text-shadow: none;
+        background-color: $background-selected-color;
+    }
+    span.selected:hover {
+        //color: darken($label-selected-color, 20%) ;
+    }
+    span:hover {
+        color: lighten($label-color, 20%);
+        left: 0.1em;
+    }
+    span:focus {
+        outline: medium solid darken(red, 10) !important;
+        // box-shadow: 0 0 10px #719ECE;
+    }
 }
+
 .close {
-  background: none;
-  border: none;
+    background: none;
+    border: none;
+}
+
+
+/* toggle switch */
+
+.onoffswitch {
+    position: relative;
+    width: 102px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    height: 42px;
+    padding: 0;
+    line-height: 42px;
+    border: 2px solid #CCCCCC;
+    border-radius: 42px;
+    background-color: #486D8E;
+    transition: background-color 0.3s ease-in;
+}
+
+.onoffswitch-label:before {
+    content: "";
+    display: block;
+    width: 42px;
+    margin: 0px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 58px;
+    border: 2px solid #CCCCCC;
+    border-radius: 42px;
+    transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #E0E0E0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label,
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    border-color: #E0E0E0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px;
 }

@@ -106,7 +106,7 @@ gulp.task('deploy', function() {
 
 departmentCode = "ANTH";
 courseName = "ANTH400C";
-interactiveName = "river-yuman-map";
+interactiveName = "river-yuman-map-nocolor";
 
 username = 'rootb1';
 server = 'web01.online.unlv.edu';

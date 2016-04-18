@@ -31,8 +31,6 @@ System.register(['angular2/core', './layer-data', './space-to-break-pipe'], func
                     this.title = 'Culture Group Viewer';
                     this.width = 700;
                     this.height = 571;
-                    this.toggle = false;
-                    this.box = false;
                 }
                 AppComponent.prototype.pressKey = function (keyCode, layer) {
                     if (keyCode === KEY_SPACE || keyCode === KEY_ENTER) {
@@ -48,25 +46,30 @@ System.register(['angular2/core', './layer-data', './space-to-break-pipe'], func
                 AppComponent.prototype.selectLayer = function (layer) {
                     this.showAnimations = true;
                     this.selectedLayer = layer;
+                    // console.log(this.box);
+                    if (this.selectedLayer == this.layers[0]) {
+                        this.box = false;
+                    }
+                    else {
+                        this.box = true;
+                    }
                 };
-                AppComponent.prototype.isSelected = function (layer) {
-                    return this.selectedLayer == layer;
-                };
-                AppComponent.prototype.change = function () {
-                    this.toggle = !this.toggle;
-                    if (this.toggle) {
-                        this.box = this.toggle;
+                AppComponent.prototype.buttonChange = function () {
+                    if (this.box == false) {
                         this.selectedLayer = this.layers[1];
                     }
                     else {
-                        this.box = this.toggle;
                         this.selectedLayer = this.layers[0];
                     }
+                };
+                AppComponent.prototype.isSelected = function (layer) {
+                    return this.selectedLayer == layer;
                 };
                 AppComponent.prototype.ngOnInit = function () {
                     this.showAnimations = false;
                     this.layers = layer_data_1.layerData.sort(function (a, b) { return a.tabOrder - b.tabOrder; });
                     this.selectedLayer = this.layers[0];
+                    this.box = false;
                 };
                 AppComponent = __decorate([
                     core_1.Component({

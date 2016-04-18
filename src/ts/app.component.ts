@@ -26,8 +26,7 @@ export class AppComponent implements OnInit{
   public layers: Layer[];
   public selectedLayer: Layer;
   public showAnimations: boolean;
-  public toggle = false;
-  box = false;
+  box;
   constructor(){
 
   }
@@ -49,27 +48,31 @@ export class AppComponent implements OnInit{
   selectLayer(layer: Layer) {
     this.showAnimations = true;
     this.selectedLayer = layer;
+   // console.log(this.box);
+    if(this.selectedLayer == this.layers[0]){
+      this.box = false;        
+    }else{
+      this.box = true;   
+    }
+  }
+
+ buttonChange(){
+    if(this.box == false) {
+      this.selectedLayer = this.layers[1];
+    }else{
+      this.selectedLayer = this.layers[0];
+    }
   }
 
   isSelected(layer: Layer) {
     return this.selectedLayer == layer;
   }
   
-change(){
- this.toggle = !this.toggle;
- if(this.toggle){
-   this.box = this.toggle;
-   this.selectedLayer = this.layers[1];
- }else{
-   this.box = this.toggle;
-   this.selectedLayer = this.layers[0];
-  }
- }
-
   ngOnInit() {
     this.showAnimations = false;
     this.layers = layerData.sort((a,b) => a.tabOrder - b.tabOrder);
     this.selectedLayer = this.layers[0];
+    this.box = false;
   }
 
 

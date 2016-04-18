@@ -32,7 +32,7 @@ System.register(['angular2/core', './layer-data', './space-to-break-pipe'], func
                     this.width = 700;
                     this.height = 571;
                     this.toggle = false;
-                    this.box = true;
+                    this.box = false;
                 }
                 AppComponent.prototype.pressKey = function (keyCode, layer) {
                     if (keyCode === KEY_SPACE || keyCode === KEY_ENTER) {
@@ -54,16 +54,13 @@ System.register(['angular2/core', './layer-data', './space-to-break-pipe'], func
                 };
                 AppComponent.prototype.change = function () {
                     this.toggle = !this.toggle;
-                    console.log('toggle first', this.toggle);
                     if (this.toggle) {
                         this.box = this.toggle;
                         this.selectedLayer = this.layers[1];
-                        console.log('box for layer 1', this.toggle);
                     }
                     else {
                         this.box = this.toggle;
                         this.selectedLayer = this.layers[0];
-                        console.log('box for layer 0', this.toggle);
                     }
                 };
                 AppComponent.prototype.ngOnInit = function () {

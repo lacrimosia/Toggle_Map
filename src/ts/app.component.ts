@@ -27,7 +27,7 @@ export class AppComponent implements OnInit{
   public selectedLayer: Layer;
   public showAnimations: boolean;
   public toggle = false;
-  box = true;
+  box = false;
   constructor(){
 
   }
@@ -57,15 +57,12 @@ export class AppComponent implements OnInit{
   
 change(){
  this.toggle = !this.toggle;
- console.log('toggle first', this.toggle); 
  if(this.toggle){
    this.box = this.toggle;
    this.selectedLayer = this.layers[1];
-   console.log('box for layer 1', this.toggle); 
  }else{
    this.box = this.toggle;
    this.selectedLayer = this.layers[0];
-   console.log('box for layer 0', this.toggle);
   }
  }
 

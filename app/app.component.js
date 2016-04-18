@@ -46,7 +46,6 @@ System.register(['angular2/core', './layer-data', './space-to-break-pipe'], func
                 AppComponent.prototype.selectLayer = function (layer) {
                     this.showAnimations = true;
                     this.selectedLayer = layer;
-                    // console.log(this.box);
                     if (this.selectedLayer == this.layers[0]) {
                         this.box = false;
                     }

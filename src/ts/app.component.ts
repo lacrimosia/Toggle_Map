@@ -48,7 +48,6 @@ export class AppComponent implements OnInit{
   selectLayer(layer: Layer) {
     this.showAnimations = true;
     this.selectedLayer = layer;
-   // console.log(this.box);
     if(this.selectedLayer == this.layers[0]){
       this.box = false;        
     }else{

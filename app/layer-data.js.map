@@ -1,0 +1,1 @@
+{"version":3,"file":"layer-data.js","sourceRoot":"","sources":["../src/ts/layer-data.ts"],"names":[],"mappings":";;;QAEW,SAAS;;;;YAAT,uBAAA,SAAS,GAAW;gBAC7B;oBACE,UAAU,EAAE,CAAC;oBACb,MAAM,EAAE,uBAAuB;oBAC/B,OAAO,EAAE,qDAAqD;oBAC9D,UAAU,EAAE,wDAAwD;iBACrE;gBACD;oBACE,UAAU,EAAE,CAAC;oBACb,MAAM,EAAE,0BAA0B;oBAClC,OAAO,EAAE,wDAAwD;oBACjE,UAAU,EAAE,kEAAkE;iBAC/E;aACF,CAAA,CAAA"}

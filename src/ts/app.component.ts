@@ -18,8 +18,7 @@ const KEY_ENTER: number = 13;
 })
 
 export class AppComponent implements OnInit{
-
-
+  
   public title = 'Culture Group Viewer';
   public width = 700;
   public height= 571;
@@ -27,6 +26,10 @@ export class AppComponent implements OnInit{
   public layers: Layer[];
   public selectedLayer: Layer;
   public showAnimations: boolean;
+  box;
+  constructor(){
+
+  }
 
   pressKey(keyCode, layer) {
     if(keyCode === KEY_SPACE || keyCode === KEY_ENTER) {
@@ -42,19 +45,33 @@ export class AppComponent implements OnInit{
     return layer == this.layers[this.layers.length - 1];
   }
 
-selectLayer(layer: Layer) {
+  selectLayer(layer: Layer) {
     this.showAnimations = true;
     this.selectedLayer = layer;
+    if(this.selectedLayer == this.layers[0]){
+      this.box = false;        
+    }else{
+      this.box = true;   
+    }
+  }
+
+ buttonChange(){
+    if(this.box == false) {
+      this.selectedLayer = this.layers[1];
+    }else{
+      this.selectedLayer = this.layers[0];
+    }
   }
 
   isSelected(layer: Layer) {
     return this.selectedLayer == layer;
   }
-
+  
   ngOnInit() {
     this.showAnimations = false;
     this.layers = layerData.sort((a,b) => a.tabOrder - b.tabOrder);
     this.selectedLayer = this.layers[0];
+    this.box = false;
   }
 
 

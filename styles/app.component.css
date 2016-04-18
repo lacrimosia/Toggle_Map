@@ -1,0 +1,111 @@
+/*Global properties*/
+body {
+  margin: 0; }
+
+.map {
+  position: relative;
+  top: -45px;
+  left: 0;
+  transition: background-image 0.3s ease-in; }
+
+.layer-buttons span.label {
+  font-family: Raleway, sans-serif !important;
+  font-size: 1.6em;
+  display: block;
+  cursor: pointer;
+  float: left;
+  padding: 0.3em;
+  color: #c2d2e0;
+  text-shadow: none;
+  background-color: #486d8e;
+  border-radius: 3px;
+  margin-right: 4px; }
+  .layer-buttons span.label.last {
+    margin-right: 0; }
+
+.layer-buttons span.label.selected {
+  color: #26394a;
+  text-shadow: none;
+  background-color: white; }
+
+.layer-buttons span:hover {
+  color: white;
+  left: 0.1em; }
+
+.layer-buttons span:focus {
+  outline: medium solid #cc0000 !important; }
+
+.close {
+  background: none;
+  border: none; }
+
+/* toggle switch */
+.onoffswitch {
+  position: relative;
+  width: 102px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  top: -60px;
+  left: 586px; }
+
+.onoffswitch-checkbox {
+  display: none; }
+
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  height: 42px;
+  padding: 0;
+  line-height: 42px;
+  border: 2px solid #CCCCCC;
+  border-radius: 42px;
+  background-color: #486D8E;
+  transition: background-color 0.2s ease-in; }
+
+.onoffswitch-label:before {
+  content: "";
+  display: block;
+  width: 42px;
+  margin: 0px;
+  background: #FFFFFF;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 58px;
+  border: 2px solid #CCCCCC;
+  border-radius: 42px;
+  transition: all 0.2s ease-in 0s; }
+
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+  background-color: #E0E0E0; }
+
+.onoffswitch-checkbox:checked + .onoffswitch-label,
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  border-color: #E0E0E0; }
+
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  right: 0px; }
+
+/* Title Label */
+.title {
+  font-family: Raleway, sans-serif !important;
+  font-size: 1.6em;
+  display: block;
+  cursor: pointer;
+  float: left;
+  padding: 0.3em;
+  color: #c2d2e0;
+  text-shadow: none;
+  background-color: #486d8e;
+  border-radius: 3px;
+  margin-right: 4px;
+  position: relative;
+  top: 45px;
+  left: 65px; }
+
+.selected {
+  color: #26394a !important;
+  text-shadow: none;
+  background-color: white !important; }

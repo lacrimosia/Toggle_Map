@@ -27,6 +27,10 @@ export class AppComponent implements OnInit{
   public selectedLayer: Layer;
   public showAnimations: boolean;
   public toggle = false;
+  box = true;
+  constructor(){
+
+  }
 
   pressKey(keyCode, layer) {
     if(keyCode === KEY_SPACE || keyCode === KEY_ENTER) {
@@ -50,13 +54,18 @@ export class AppComponent implements OnInit{
   isSelected(layer: Layer) {
     return this.selectedLayer == layer;
   }
-
+  
 change(){
  this.toggle = !this.toggle;
+ console.log('toggle first', this.toggle); 
  if(this.toggle){
-    this.selectedLayer = this.layers[1];
+   this.box = this.toggle;
+   this.selectedLayer = this.layers[1];
+   console.log('box for layer 1', this.toggle); 
  }else{
-     this.selectedLayer = this.layers[0];
+   this.box = this.toggle;
+   this.selectedLayer = this.layers[0];
+   console.log('box for layer 0', this.toggle);
   }
  }
 

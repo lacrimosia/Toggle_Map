@@ -120,7 +120,7 @@ gulp.src('.').pipe(prompt.prompt({
 connectionString = result.username + '@' + server;
 
 process.stdout.write('Creating directory if necessary...\n');
-child_process.execSync('ssh ' + connectionString + ' mkdir -p' + fullPath, function(err,stdout, stderr) {
+child_process.execSync('ssh ' + connectionString + ' mkdir -p ' + fullPath, function(err,stdout, stderr) {
  if (err) {
    console.log("create directory failed with error code: " +
      err.code);

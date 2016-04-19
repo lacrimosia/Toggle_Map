@@ -120,7 +120,9 @@ gulp.src('.').pipe(prompt.prompt({
 connectionString = result.username + '@' + server;
 
 process.stdout.write('Creating directory if necessary...\n');
-child_process.execSync('ssh ' + connectionString + ' mkdir -p' + fullPath, function(err,stdout, stderr) {
+process.stdout.write('Rsyncing to server...\n');
+
+child_process.execSync('ssh ' + connectionString + ' mkdir -p ' + fullPath, function(err,stdout, stderr) {
  if (err) {
    console.log("create directory failed with error code: " +
      err.code);
@@ -128,8 +130,6 @@ child_process.execSync('ssh ' + connectionString + ' mkdir -p' + fullPath, funct
    console.log(stdout);
  });
 
-
-process.stdout.write('Rsyncing to server...\n');
 child_process.execSync('rsync -aP --delete dist/ ' + connectionString + ':' + fullPath, function(err,stdout, stderr) {
  if (err) {
    console.log("rsync failed with error code: " +

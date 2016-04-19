@@ -103,23 +103,25 @@ gulp.task('copy-compiled-source-and-assets', function() {
 });
 
 gulp.task('deploy', function() {
+process.stdout.write('Please enter the required deployment information then uncomment the rest of the function in gulpfile.js\n');
+departmentCode = "AAA";
+courseName = "AAA101";
+interactiveName = "some-image-toggle";
 
-departmentCode = "ANTH";
-courseName = "ANTH400C";
-interactiveName = "river-yuman-map";
+username = 'your account name';
+server = ''; // web01.online.unlv.edu
 
-username = 'rootb1';
-server = 'web01.online.unlv.edu';
-
-fullPath = "/srv/www/courses.online.unlv.edu/courses/" + departmentCode + '/' + courseName +'/'+ interactiveName;
+basePath = "/srv/www/courses.online.unlv.edu/courses";
+fullPath = basePath + '/' + departmentCode + '/' + courseName +'/'+ interactiveName;
 connectionString = username + '@' + server;
 
-process.stdout.write('Rsyncing to server...\n');
-child_process.execSync('rsync -aP --delete dist/ ' + connectionString + ':' + fullPath, function(err,stdout, stderr) {
- if (err) {
-   console.log("clean processes failed with error code: " +
-     err.code);
-   }
-   console.log(stdout);
- });
+// Uncomment this code once you have entered the deployment details above.
+// process.stdout.write('Rsyncing to server...\n');
+// child_process.execSync('rsync -aP --delete dist/ ' + connectionString + ':' + fullPath, function(err,stdout, stderr) {
+//  if (err) {
+//    console.log("clean processes failed with error code: " +
+//      err.code);
+//    }
+//    console.log(stdout);
+//  });
 });

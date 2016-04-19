@@ -29,6 +29,7 @@
     "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^2.0.4",
     "gulp-concat": "^2.6.0",
+    "gulp-prompt": "^0.2.0",
     "gulp-sass": "^2.2.0",
     "gulp-typescript": "^2.12.1",
     "gulp-util": "^3.0.7",

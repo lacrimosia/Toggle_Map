@@ -8,6 +8,7 @@ var child_process = require('child_process');
 var sass = require('gulp-sass');
 var clean = require('gulp-clean-css');
 var runSequence = require('run-sequence');
+var prompt = require('gulp-prompt');
 
 var paths = {
   "source":{
@@ -107,21 +108,36 @@ process.stdout.write('Please enter the required deployment information then unco
 departmentCode = "AAA";
 courseName = "AAA101";
 interactiveName = "some-image-toggle";
-
-username = 'your account name';
 server = ''; // web01.online.unlv.edu
-
 basePath = "/srv/www/courses.online.unlv.edu/courses";
 fullPath = basePath + '/' + departmentCode + '/' + courseName +'/'+ interactiveName;
-connectionString = username + '@' + server;
 
-// Uncomment this code once you have entered the deployment details above.
-// process.stdout.write('Rsyncing to server...\n');
-// child_process.execSync('rsync -aP --delete dist/ ' + connectionString + ':' + fullPath, function(err,stdout, stderr) {
-//  if (err) {
-//    console.log("clean processes failed with error code: " +
-//      err.code);
-//    }
-//    console.log(stdout);
-//  });
+gulp.src('.').pipe(prompt.prompt({
+  type: 'input',
+  name: 'username',
+  message: 'Which user to deploy with?'
+}, function(result) {
+connectionString = result.username + '@' + server;
+
+process.stdout.write('Creating directory if necessary...\n');
+child_process.execSync('ssh ' + connectionString + ' mkdir -p' + fullPath, function(err,stdout, stderr) {
+ if (err) {
+   console.log("create directory failed with error code: " +
+     err.code);
+   }
+   console.log(stdout);
+ });
+
+
+process.stdout.write('Rsyncing to server...\n');
+child_process.execSync('rsync -aP --delete dist/ ' + connectionString + ':' + fullPath, function(err,stdout, stderr) {
+ if (err) {
+   console.log("rsync failed with error code: " +
+     err.code);
+   }
+   console.log(stdout);
+ });
+
+}));
+
 });

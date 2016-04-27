@@ -3,7 +3,7 @@
         <img *ngFor="#layer of layers" src="{{layer.image}}" [style.display]="isSelected(layer)? 'block': 'none'" alt="{{layer.imageAlt}}" width={{width}} height={{height}} />
         <!--toggle map -->
       <div class="onoffswitch" tabindex=0 (keypress)="toggleButtonKeypress($event.keyCode)">
-        <input type="checkbox" name="onoffswitch"  class="onoffswitch-checkbox" id="myonoffswitch"  [(ngModel)]="box">
-        <label class="onoffswitch-label" for="myonoffswitch" (click)="toggleLayer()"></label>
+        <input type="checkbox" name="onoffswitch"  class="onoffswitch-checkbox" id="myonoffswitch"  (change)="toggleLayer()" [(ngModel)]="imageCheckbox">
+        <label class="onoffswitch-label" for="myonoffswitch" ></label>
      </div>
    </div>

@@ -25,8 +25,7 @@ export class AppComponent implements OnInit{
 
   public layers: Layer[];
   public selectedLayer: Layer;
-  public showAnimations: boolean;
-  box;
+  public imageCheckbox = false;
   constructor(){
 
   }
@@ -52,17 +51,16 @@ return keyCode === KEY_SPACE || keyCode === KEY_ENTER;
   }
 
   selectLayer(layer: Layer) {
-    this.showAnimations = true;
     this.selectedLayer = layer;
     if(this.selectedLayer == this.layers[0]){
-      this.box = false;
+      this.imageCheckbox = false;
     }else{
-      this.box = true;
+      this.imageCheckbox = true;
     }
   }
 
  toggleLayer(){
-    if(this.box == false) {
+    if(this.isSelected(this.layers[0])){
       this.selectLayer(this.layers[1]);
     }else{
       this.selectLayer(this.layers[0]);
@@ -74,10 +72,9 @@ return keyCode === KEY_SPACE || keyCode === KEY_ENTER;
   }
 
   ngOnInit() {
-    this.showAnimations = false;
     this.layers = layerData.sort((a,b) => a.tabOrder - b.tabOrder);
     this.selectedLayer = this.layers[0];
-    this.box = false;
+    this.imageCheckbox = false;
   }
 
 

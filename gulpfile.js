@@ -105,11 +105,11 @@ gulp.task('copy-compiled-source-and-assets', function() {
 
 gulp.task('deploy', function() {
 
-departmentCode = "DEMO";
-courseName = "DEMO101";
-interactiveName = "image-toggle";
-server = 'dev.online.unlv.edu';
-basePath = "/srv/www/dev.courses.online.unlv.edu/courses";
+departmentCode = "ANTH";
+courseName = "ANTH400C";
+interactiveName = "river-yuman-map";
+server = 'web01.online.unlv.edu';
+basePath = "/srv/www/courses.online.unlv.edu/courses";
 fullPath = basePath + '/' + departmentCode + '/' + courseName +'/'+ interactiveName;
 
 gulp.src('.').pipe(prompt.prompt({

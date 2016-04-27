@@ -104,12 +104,12 @@ gulp.task('copy-compiled-source-and-assets', function() {
 });
 
 gulp.task('deploy', function() {
-process.stdout.write('Please enter the required deployment information then uncomment the rest of the function in gulpfile.js\n');
-departmentCode = "AAA";
-courseName = "AAA101";
-interactiveName = "some-image-toggle";
-server = ''; // web01.online.unlv.edu
-basePath = "/srv/www/courses.online.unlv.edu/courses";
+
+departmentCode = "DEMO";
+courseName = "DEMO101";
+interactiveName = "image-toggle";
+server = 'dev.online.unlv.edu';
+basePath = "/srv/www/dev.courses.online.unlv.edu/courses";
 fullPath = basePath + '/' + departmentCode + '/' + courseName +'/'+ interactiveName;
 
 gulp.src('.').pipe(prompt.prompt({

@@ -10,17 +10,11 @@ npm install
 ```
 
 ## gulpfile.js
-An example gulpfile.js included in the project. Copy this file to gulpfile.js
-```
-cp gulpfile.example.js gulpfile.js
-```
-Make changes to the gulpfile.js rather than the example.gulpfile.js
+Modify the gulpfile.js to reflect your project deployment settings.
 
 ## layer-data.ts
-Copy the example hotspot data file to the standard location for hotspot-data
-```
-cp src/ts/layer-data.example.ts src/ts/hotspot-data.ts
-```
+Contains the data for the different layers, including what text to display and which images to load for each layer.
+
 ## Build the project
 To view the interactive you will have to build it. This compiles SASS and TS in to CSS and JS.
 ```
@@ -39,3 +33,27 @@ The watch task in the example gulpfile will watch for changes to any of the sour
 ```
 gulp watch
 ```
+## Deploy to a server
+```
+gulp package
+gulp deploy
+```
+These commands will create a distributable version in the 'dist' directory, and then create a directory on the server.
+### Development
+```
+departmentCode = "DEMO";
+courseName = "DEMO101";
+interactiveName = "image-toggle";
+server = 'dev.online.unlv.edu';
+basePath = "/srv/www/dev.courses.online.unlv.edu/courses";
+```
+URL for this deployed app will be: https://dev.courses.online.unlv/courses/DEMO/DEMO101/image-toggle/
+### Production
+```
+departmentCode = "DEMO";
+courseName = "DEMO101";
+interactiveName = "image-toggle";
+server = 'web01.online.unlv.edu';
+basePath = "/srv/www/courses.online.unlv.edu/courses";
+```
+URL for this deployed app will be: https://courses.online.unlv/courses/DEMO/DEMO101/image-toggle/

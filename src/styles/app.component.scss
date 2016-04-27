@@ -15,8 +15,11 @@ body {
   margin: 0;
 }
 .map {
+  position: relative;
   max-width: 700px;
   img {
+    position: relative;
+    top: -46px;
     max-width: 100%;
     height: auto;
     display: none;
@@ -70,8 +73,8 @@ body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  top: -60px;
-  left: 75%;
+  top: -126px;
+  left: 66%;
 }
 .onoffswitch-checkbox {
   display: none;
@@ -125,9 +128,9 @@ body {
   background-color: $background-color;
   border-radius: 3px;
   margin-right: 4px;
+  z-index: 1;
   position: relative;
-  top: 45px;
-  left: 65px;
+
 }
 .selected {
   color: $label-selected-color !important;

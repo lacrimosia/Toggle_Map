@@ -1,8 +1,8 @@
-    <div id="imageDisplayArea" class="map" role="region" aria-live="polite">  <!--[style.width]="width" [style.height]="height"-->
-      <span class="title" *ngFor="#layer of layers" [class.selected]="layer === selectedLayer" (keypress)="layerButtonKeypress($event.keyCode, layer)" (click)="selectLayer(layer)" tabindex=0>{{layer.name}}</span>
-        <img *ngFor="#layer of layers" src="{{layer.image}}" [class.selected]="layer === selectedLayer"  alt="{{layer.imageAlt}}"  />
+<span class="title" *ngFor="#layer of layers" [class.selected]="layer === selectedLayer" (keypress)="layerButtonKeypress($event.keyCode, layer)" (click)="selectLayer(layer)" tabindex=0>{{layer.name}}</span>
+<div id="imageDisplayArea" class="map" role="region" aria-live="polite">
+      <img *ngFor="#layer of layers" src="{{layer.image}}" [class.selected]="layer === selectedLayer"  alt="{{layer.imageAlt}}"  />
       <div class="onoffswitch" tabindex=0 aria-controls="imageDisplayArea" (keypress)="toggleButtonKeypress($event.keyCode)">
-        <input type="checkbox" name="onoffswitch"  class="onoffswitch-checkbox" id="myonoffswitch"  (change)="toggleLayer()" [(ngModel)]="imageCheckbox">
-        <label class="onoffswitch-label" for="myonoffswitch" ></label>
-     </div>
-   </div>
+            <input type="checkbox" name="onoffswitch"  class="onoffswitch-checkbox" id="myonoffswitch"  (change)="toggleLayer()" [(ngModel)]="imageCheckbox">
+            <label class="onoffswitch-label" for="myonoffswitch" ></label>
+      </div>
+</div>

@@ -111,7 +111,7 @@ interactiveName = "image-toggle";
 server = 'dev.online.unlv.edu';
 basePath = "/srv/www/dev.courses.online.unlv.edu/courses";
 fullPath = basePath + '/' + departmentCode + '/' + courseName +'/'+ interactiveName;
-
+process.stdout.write('Deploying to ' + server + ':' + fullPath + '\n');
 gulp.src('.').pipe(prompt.prompt({
   type: 'input',
   name: 'username',

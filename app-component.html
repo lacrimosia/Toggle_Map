@@ -1,9 +1,9 @@
     <div class="map" [style.width]="width" [style.height]="height">
-      <span class="title" *ngFor="#layer of layers" [class.selected]="layer === selectedLayer" (click)="selectLayer(layer)">{{layer.name}}</span>
+      <span class="title" *ngFor="#layer of layers" [class.selected]="layer === selectedLayer" (keypress)="layerButtonKeypress($event.keyCode, layer)" (click)="selectLayer(layer)" tabindex=0>{{layer.name}}</span>
         <img *ngFor="#layer of layers" src="{{layer.image}}" [style.display]="isSelected(layer)? 'block': 'none'" alt="{{layer.imageAlt}}" width={{width}} height={{height}} />
         <!--toggle map -->
-      <div class="onoffswitch">
-        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch"  [(ngModel)]="box">
-        <label class="onoffswitch-label" for="myonoffswitch" (click)="buttonChange()"></label>
+      <div class="onoffswitch" tabindex=0 (keypress)="toggleButtonKeypress($event.keyCode)">
+        <input type="checkbox" name="onoffswitch"  class="onoffswitch-checkbox" id="myonoffswitch"  [(ngModel)]="box">
+        <label class="onoffswitch-label" for="myonoffswitch" (click)="toggleLayer()"></label>
      </div>
    </div>

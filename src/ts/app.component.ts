@@ -18,7 +18,7 @@ const KEY_ENTER: number = 13;
 })
 
 export class AppComponent implements OnInit{
-  
+
   public title = 'Culture Group Viewer';
   public width = 700;
   public height= 571;
@@ -31,11 +31,17 @@ export class AppComponent implements OnInit{
 
   }
 
-  pressKey(keyCode, layer) {
-    if(keyCode === KEY_SPACE || keyCode === KEY_ENTER) {
-      this.selectLayer(layer);
-    }
-  }
+layerButtonKeypress(keyCode, layer) {
+  if (this.isActionKeyPress(keyCode)) this.selectLayer(layer);
+}
+
+toggleButtonKeypress(keyCode) {
+  if (this.isActionKeyPress(keyCode)) this.toggleLayer();
+}
+
+isActionKeyPress(keyCode) {
+return keyCode === KEY_SPACE || keyCode === KEY_ENTER;
+}
 
   isFirst(layer: Layer) {
     return layer == this.layers[0];
@@ -49,24 +55,24 @@ export class AppComponent implements OnInit{
     this.showAnimations = true;
     this.selectedLayer = layer;
     if(this.selectedLayer == this.layers[0]){
-      this.box = false;        
+      this.box = false;
     }else{
-      this.box = true;   
+      this.box = true;
     }
   }
 
- buttonChange(){
+ toggleLayer(){
     if(this.box == false) {
-      this.selectedLayer = this.layers[1];
+      this.selectLayer(this.layers[1]);
     }else{
-      this.selectedLayer = this.layers[0];
+      this.selectLayer(this.layers[0]);
     }
   }
 
   isSelected(layer: Layer) {
     return this.selectedLayer == layer;
   }
-  
+
   ngOnInit() {
     this.showAnimations = false;
     this.layers = layerData.sort((a,b) => a.tabOrder - b.tabOrder);

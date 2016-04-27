@@ -104,12 +104,12 @@ gulp.task('copy-compiled-source-and-assets', function() {
 });
 
 gulp.task('deploy', function() {
-process.stdout.write('Please enter the required deployment information then uncomment the rest of the function in gulpfile.js\n');
-departmentCode = "ANTH";
-courseName = "ANTH400C";
-interactiveName = "river-yuman-map";
-server = 'web01.online.unlv.edu'; // web01.online.unlv.edu
-basePath = "/srv/www/courses.online.unlv.edu/courses";
+
+departmentCode = "DEMO";
+courseName = "DEMO101";
+interactiveName = "image-toggle";
+server = 'dev.online.unlv.edu';
+basePath = "/srv/www/dev.courses.online.unlv.edu/courses";
 fullPath = basePath + '/' + departmentCode + '/' + courseName +'/'+ interactiveName;
 
 gulp.src('.').pipe(prompt.prompt({
@@ -120,8 +120,6 @@ gulp.src('.').pipe(prompt.prompt({
 connectionString = result.username + '@' + server;
 
 process.stdout.write('Creating directory if necessary...\n');
-process.stdout.write('Rsyncing to server...\n');
-
 child_process.execSync('ssh ' + connectionString + ' mkdir -p ' + fullPath, function(err,stdout, stderr) {
  if (err) {
    console.log("create directory failed with error code: " +
@@ -130,6 +128,8 @@ child_process.execSync('ssh ' + connectionString + ' mkdir -p ' + fullPath, func
    console.log(stdout);
  });
 
+
+process.stdout.write('Rsyncing to server...\n');
 child_process.execSync('rsync -aP --delete dist/ ' + connectionString + ':' + fullPath, function(err,stdout, stderr) {
  if (err) {
    console.log("rsync failed with error code: " +

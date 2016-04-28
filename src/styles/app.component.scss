@@ -4,77 +4,39 @@ $label-font: Raleway, sans-serif !important;
 $font-size: 14px;
 $shadow-color: black;
 $control-palette: desaturate( #6BA1D1, 20);
-$label-color: lighten($control-palette, 20);
-$background-color: darken($control-palette, 20);
+$label-color: #000;
+$background-color: rbga(#000, 0.4);
 $label-selected-color: darken($control-palette, 40);
-$background-selected-color: lighten($background-color, 90); // functions
+$background-selected-color: lighten(#6BA1D1, 90);
+
+// functions
 @mixin pad($x) {
   padding: $x;
 }
 body {
   margin: 0;
 }
-.map {
-  position: relative;
-  max-width: 700px;
+#imageDisplayArea {
+  position: absolute;
   img {
-    position: relative;
-    top: -46px;
+    display: none;
     max-width: 100%;
     height: auto;
-    display: none;
-  }
+    }
   img.selected {
     display: block;
   }
 }
-.layer-buttons {
-  span.label {
-    font-family: $label-font;
-    font-size: 1.6em;
-    display: block;
-    cursor: pointer;
-    float: left;
-    @include pad(0.3em);
-    color: $label-color;
-    text-shadow: none;
-    background-color: $background-color;
-    border-radius: 3px;
-    margin-right: 4px;
-    &.last {
-      margin-right: 0;
-    }
-  }
-  span.label.selected {
-    color: $label-selected-color;
-    text-shadow: none;
-    background-color: $background-selected-color;
-  }
-  span.selected:hover {
-    //color: darken($label-selected-color, 20%) ;
-  }
-  span:hover {
-    color: lighten($label-color, 20%);
-    left: 0.1em;
-  }
-  span:focus {
-    outline: medium solid darken(red, 10) !important;
-    // box-shadow: 0 0 10px #719ECE;
-  }
-}
-.close {
-  background: none;
-  border: none;
-}
 /* toggle switch */
 .onoffswitch {
-  position: relative;
-  width: 102px;
+  position: absolute;
+  width: 14%;
+  height: 10%;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  top: -126px;
-  left: 66%;
+  top: 85%;
+  left: 80%;
 }
 .onoffswitch-checkbox {
   display: none;
@@ -83,56 +45,57 @@ body {
   display: block;
   overflow: hidden;
   cursor: pointer;
-  height: 42px;
+  height: 100%;
   padding: 0;
-  line-height: 42px;
   border: 2px solid #CCCCCC;
   border-radius: 42px;
-  background-color: #486D8E;
+  background-color: #000;
   transition: background-color 0.1s linear;
 }
 .onoffswitch-label:before {
   content: "";
   display: block;
-  width: 42px;
+  width: 44%;
   margin: 0;
   background: #FFFFFF;
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 58px;
+  right: 55%;
   border: 2px solid #CCCCCC;
   border-radius: 42px;
   transition: all 0.15s ease-in;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label {
-  // background-color: #E0E0E0;
+  background-color: #E0E0E0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label,
 .onoffswitch-checkbox:checked + .onoffswitch-label:before {
-  // border-color: #E0E0E0;
+  border-color: #E0E0E0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label:before {
   right: 0;
 }
 /* Title Label */
+#title-box {
+  position: absolute;
+  top: 0px;
+}
 .title {
-  font-family: $label-font;
-  font-size: 1.6em;
-  display: block;
-  cursor: pointer;
   float: left;
+  font-family: $label-font;
+  font-size: 3.5vmin;
+  // cursor: pointer;
   @include pad(0.3em);
   color: $label-color;
   text-shadow: none;
-  background-color: $background-color;
+  background-color: rgba(#000, 0.2);
   border-radius: 3px;
   margin-right: 4px;
   z-index: 1;
-  position: relative;
-
 }
 .selected {
+  display: block;
   color: $label-selected-color !important;
   text-shadow: none;
   background-color: $background-selected-color !important;

@@ -1,11 +1,11 @@
 
 <div id="imageDisplayArea" class="map" role="region" aria-live="polite">
-      <img *ngFor="#layer of layers" src="{{layer.image}}" [class.selected]="layer === selectedLayer"  alt="{{layer.imageAlt}}"  />
+      <img *ngFor="let layer of layers" src="{{layer.image}}" [class.selected]="layer === selectedLayer"  alt="{{layer.imageAlt}}"  />
       <div class="onoffswitch" tabindex=0 aria-controls="imageDisplayArea" (keypress)="toggleButtonKeypress($event.keyCode)">
             <input type="checkbox" name="onoffswitch"  class="onoffswitch-checkbox" id="myonoffswitch"  (change)="toggleLayer()" [(ngModel)]="imageCheckbox">
             <label class="onoffswitch-label" for="myonoffswitch" ></label>
       </div>
       <div id="title-box">
-          <span class="title" *ngFor="#layer of layers" [class.selected]="layer === selectedLayer">{{layer.name}}</span>
+          <span class="title" *ngFor="let layer of layers" [class.selected]="layer === selectedLayer">{{layer.name}}</span>
       </div>
 </div>

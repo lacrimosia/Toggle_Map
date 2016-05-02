@@ -81,6 +81,9 @@ body {
   position: absolute;
   top: 0px;
 }
+
+/* regular size text */
+@media screen and (min-width: 602px) {
 .title {
   float: left;
   font-family: $label-font;
@@ -94,6 +97,27 @@ body {
   margin-right: 4px;
   z-index: 1;
 }
+}
+
+/* mobile changes for title */
+@media screen and (max-width: 602px) {
+  .title {
+  float: left;
+  font-family: $label-font;
+  font-size: 3.0vmin;
+  // cursor: pointer;
+  @include pad(0.3em);
+  color: $label-color;
+  text-shadow: none;
+  background-color: rgba(#000, 0.2);
+  border-radius: 3px;
+  margin-right: 4px;
+  z-index: 1;
+ }
+}
+
+
+
 .selected {
   display: block;
   color: $label-selected-color !important;

@@ -107,7 +107,7 @@ gulp.task('deploy', function() {
 
 departmentCode = "ANTH";
 courseName = "ANTH400C";
-interactiveName = "river-yuman-map";
+interactiveName = "oodham-map";
 server = 'web01.online.unlv.edu';
 basePath = "/srv/www/courses.online.unlv.edu/courses";
 fullPath = basePath + '/' + departmentCode + '/' + courseName +'/'+ interactiveName;

@@ -3,14 +3,14 @@ import {Layer} from './layer';
 export var layerData: Layer[] =[
   {
     "tabOrder": 1,
-    "name": "River Yuman Territories",
-    "image": "./images/river-yuman-territories.png",
+    "name": "Apache Past Territories",
+    "image": "./images/Apache-past-territories.png",
     "imageAlt": "Map of the Southwest showing River Yuman subgroups",
   },
   {
     "tabOrder": 2,
-    "name": "River Yuman Reservations",
-    "image": "./images/river-yuman-reservations.png",
+    "name": "Apache Modern Reservations",
+    "image": "./images/Apache-modern-reservations.png",
     "imageAlt": "Map of the Southwest showing River Yuman subgroups",
   }
 ]

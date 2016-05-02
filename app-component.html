@@ -6,6 +6,6 @@
             <label class="onoffswitch-label" for="myonoffswitch" ></label>
       </div>
       <div id="title-box">
-          <span class="title" *ngFor="let layer of layers" [class.selected]="layer === selectedLayer">{{layer.name}}</span>
+          <span class="title" *ngFor="let layer of layers" [class.selected]="layer === selectedLayer" (keypress)="layerButtonKeypress($event.keyCode,layer)"  (click)="selectLayer(layer)" tabindex=0>{{layer.name}}</span>
       </div>
 </div>

@@ -20,7 +20,7 @@ body {
   position: absolute;
   img {
     display: none;
-    width: 100vmin;
+    width: 100%;
     height: auto;
     opacity: 0;
     }
@@ -87,7 +87,7 @@ body {
 .title {
   float: left;
   font-family: $label-font;
-  font-size: 3.2vmin;
+  font-size: 3.2vw;
   cursor: pointer;
   @include pad(0.3em);
   color: rgba(#FFF, 0.3);

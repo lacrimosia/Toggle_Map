@@ -39,21 +39,4 @@ gulp package
 gulp deploy
 ```
 These commands will create a distributable version in the 'dist' directory, and then create a directory on the server.
-### Development
-```
-departmentCode = "DEMO";
-courseName = "DEMO101";
-interactiveName = "image-toggle";
-server = 'dev.online.unlv.edu';
-basePath = "/srv/www/dev.courses.online.unlv.edu/courses";
-```
-URL for this deployed app will be: https://dev.courses.online.unlv/courses/DEMO/DEMO101/image-toggle/
-### Production
-```
-departmentCode = "DEMO";
-courseName = "DEMO101";
-interactiveName = "image-toggle";
-server = 'web01.online.unlv.edu';
-basePath = "/srv/www/courses.online.unlv.edu/courses";
-```
-URL for this deployed app will be: https://courses.online.unlv/courses/DEMO/DEMO101/image-toggle/
+
